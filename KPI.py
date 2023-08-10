@@ -4,6 +4,7 @@ from datetime import datetime
 
 #Configure tftp server and direcory
 dst="ftp://calo:calo@10.124.154.60:/temp/"
+os.environ['LOGFILE_DIR']='/bootflash/guest-share'
 
 #List of commands
 cmd_list=[
@@ -106,7 +107,7 @@ def Find_platform_redundancy_interface():
         cmd_list.insert(len(cmd_list)-7,cmd)
     #Find interface version to change telemetry command
     version=cli.cli("sh ver | i Cisco IOS Software")
-    images=["Version 16.12","Version 17.1","Version 17.2","Version 17.3","Version 17.4","Version 17.5","Version 17.6","Version 17.7","Version 17.8","Version 17.9","Version 17.10","Version 17.11","Version 17.12"]
+    images=["Version 16.12","Version 17.1","Version 17.2","Version 17.3","Version 17.4","Version 17.5","Version 17.6"]
     if any(x in version for x in images):
         cmd="sh telemetry internal connection"
         cmd_list.insert(len(cmd_list)-1,cmd)
