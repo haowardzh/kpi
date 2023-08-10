@@ -2,9 +2,19 @@ import cli
 import time
 from datetime import datetime
 
+#17.9.3 Data for CLI module
+os.environ['BKUP_LOGFILE'] = '/bootflash/guest-share/iosp.log.1'
+os.environ['LOGFILE'] = '/bootflash/guest-share/iosp.log'
+
+#17.12.1 Data for CLI module 
+os.environ['BKUP_LOGFILE'] = '/bootflash/guest-share/iosp.log.1'
+os.environ['LOGFILE'] = '/bootflash/guest-share/iosp.log.log'
+os.environ['LOGFILE_DIR'] = '/bootflash/guest-share'
+os.environ['LOGFILE_SIZE'] = '2000000'
+
 #Configure tftp server and direcory
 dst="ftp://calo:calo@10.124.154.60:/temp/"
-os.environ['LOGFILE_DIR']='/bootflash/guest-share'
+
 
 #List of commands
 cmd_list=[
